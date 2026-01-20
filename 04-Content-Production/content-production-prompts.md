@@ -1,5 +1,5 @@
 content-production-prompts.md
-# 02 – Content Production System
+# 04 – Content Production System
 
 This module is responsible for generating DAILY content ideas
 for a faceless digital brand.
