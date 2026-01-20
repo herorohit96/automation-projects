@@ -1,4 +1,4 @@
-# 04 – Publishing & Scheduling System
+# 02 – Publishing & Scheduling System
 
 This module defines WHERE, WHEN, and HOW content is published.
 
