@@ -1,0 +1,8 @@
+{
+  "system_name": "MY_ROHIT_AUTOMATION_SYSTEM",
+  "brain_role": "Controller",
+  "protocol": "MCP",
+  "default_language": "simple-hinglish",
+  "faceless": true,
+  "automation_level": "beginner-to-advanced"
+}
