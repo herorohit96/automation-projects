@@ -1,0 +1,80 @@
+{
+  "name": "Affiliate Bot - Telegram Auto-Share Deals - Service 3",
+  "nodes": [
+    {
+      "parameters": {
+        "minute": "0",
+        "hour": "*/2",
+        "dayOfWeek": [],
+        "dayOfMonth": [],
+        "monthOfYear": []
+      },
+      "name": "Trigger Every 2 Hours",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.example.com/deals?category=all&limit=10",
+        "method": "GET",
+        "authentication": "none"
+      },
+      "name": "Fetch Affiliate Deals",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Process each deal\nconst deals = $input.all()[0].json.data;\n\nconst processed = deals.map(deal => ({\n  title: deal.title,\n  link: deal.affiliate_link,\n  price: deal.price,\n  discount: deal.discount,\n  description: `${deal.title}\\nPrice: ₹${deal.price}\\nDiscount: ${deal.discount}%\\nLink: ${deal.affiliate_link}`\n}));\n\nreturn processed.map(p => ({json: p}));"
+      },
+      "name": "Format Deals",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot{{ $env.TELEGRAM_BOT_TOKEN }}/sendMessage",
+        "sendBody": true,
+        "bodyType": "json",
+        "body": {
+          "chat_id": "{{ $env.TELEGRAM_CHANNEL_ID }}",
+          "text": "{{ $node[\\\"Format Deals\\\"].json.description }}",
+          "reply_markup": {\"inline_keyboard\": [[{\"text\": \"Buy Now\", \"url\": \"{{ $node[\\\"Format Deals\\\"].json.link }}\"}]]}
+        }
+      },
+      "name": "Post Deal to Telegram",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1000, 300]
+    },
+    {
+      "parameters": {
+        "documentId": "{{ $env.GOOGLE_SHEETS_ID }}",
+        "range": "Affiliate Deals!A:F",
+        "columns": ["deal_id", "title", "price", "affiliate_link", "posted_time", "status"]
+      },
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [1250, 300]
+    }
+  ],
+  "connections": {
+    "Trigger Every 2 Hours": {
+      "main": [[{"node": "Fetch Affiliate Deals", "type": "main", "index": 0}]]
+    },
+    "Fetch Affiliate Deals": {
+      "main": [[{"node": "Format Deals", "type": "main", "index": 0}]]
+    },
+    "Format Deals": {
+      "main": [[{"node": "Post Deal to Telegram", "type": "main", "index": 0}]]
+    },
+    "Post Deal to Telegram": {
+      "main": [[{"node": "Log to Google Sheets", "type": "main", "index": 0}]]
+    }
+  }
+}

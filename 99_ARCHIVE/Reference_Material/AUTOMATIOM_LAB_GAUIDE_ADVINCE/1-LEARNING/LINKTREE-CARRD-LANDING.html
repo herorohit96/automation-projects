@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Automation Templates — Quick Links</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff6b00;--muted:#9aa4b2;--white:#f8fafc}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071024 0%, #0f1724 100%);color:var(--white);display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .container{width:100%;max-width:640px;padding:28px}
+    .card{background:rgba(255,255,255,0.03);border-radius:14px;padding:28px;text-align:center;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    img.avatar{width:96px;height:96px;border-radius:50%;border:3px solid rgba(255,255,255,0.06);object-fit:cover}
+    h1{margin:12px 0 6px;font-size:20px}
+    p{margin:0 0 18px;color:var(--muted)}
+    .btn{display:block;margin:10px auto;padding:14px 18px;border-radius:12px;text-decoration:none;color:#fff;font-weight:600;max-width:420px}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#ff9a3c)}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--white)}
+    .small{font-size:13px;color:var(--muted);margin-top:14px}
+    .links{display:flex;flex-direction:column;gap:10px;align-items:center}
+    footer{margin-top:16px;color:var(--muted);font-size:13px}
+    @media(min-width:720px){h1{font-size:24px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <img src="https://via.placeholder.com/96" class="avatar" alt="Your Photo">
+      <h1>Your Name — Automation Templates</h1>
+      <p>Earn ₹50K+ per month using copy-paste automation templates for Telegram, Instagram & Email.</p>
+
+      <div class="links">
+        <a class="btn primary" href="https://gumroad.com/yourname" target="_blank">Buy Templates — ₹7,999 (3-bot bundle)</a>
+        <a class="btn secondary" href="https://fiverr.com/yourname" target="_blank">Hire me for Setup — Fiverr</a>
+        <a class="btn secondary" href="https://upwork.com/freelancers/yourname" target="_blank">Upwork Projects / Hire</a>
+        <a class="btn secondary" href="https://your-landing-page.example" target="_blank">Join Email List — Free Guide</a>
+        <a class="btn secondary" href="https://t.me/yourcommunity" target="_blank">Join Telegram Community</a>
+        <a class="btn secondary" href="https://drive.google.com/file/d/yourportfolioid/view" target="_blank">Download Portfolio (PDF)</a>
+      </div>
+
+      <div class="small">Pro tip: Update these links to your real product pages and portfolio PDF.</div>
+      <footer>© <span id="yr"></span> Your Name — Automation Templates</footer>
+    </div>
+  </div>
+  <script>document.getElementById('yr').innerText=(new Date()).getFullYear()</script>
+</body>
+</html>

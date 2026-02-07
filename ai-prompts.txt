@@ -1,0 +1,25 @@
+# AI Prompts Store
+
+This file stores reusable prompts for the automation system.
+
+## GST Calculator Prompt
+Role: Automation Script Helper
+Task: Calculate GST with Breakdown
+
+Input: 
+- Amount (Number, Positive)
+- GST Rate (Number, Percentage)
+
+Logic:
+1. Validate inputs: If Amount or Rate is negative, throw Error.
+2. Calculate GST Amount = (Amount * Rate) / 100
+3. Calculate Total = Amount + GST Amount
+4. Return Structured Object:
+   {
+     originalAmount: <input_amount>,
+     gstRate: <input_rate>,
+     gstAmount: <calculated_tax>,
+     totalAmount: <final_total>
+   }
+
+Goal: Provide accurate, structured financial data for automation workflows.

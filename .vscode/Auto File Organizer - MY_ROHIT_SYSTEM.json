@@ -1,0 +1,80 @@
+{
+  "name": "Auto File Organizer - MY_ROHIT_SYSTEM",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ManualTrigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "directoryPath": "/DATA/MY_ROHIT_AUTOMATION_SYSTEM",
+        "options": {
+          "recursive": true
+        }
+      },
+      "id": "ReadFiles",
+      "name": "Read Files",
+      "type": "n8n-nodes-base.readBinaryFiles",
+      "typeVersion": 1,
+      "position": [400, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$binary.data.fileName}}",
+              "operation": "contains",
+              "value2": ".md"
+            }
+          ]
+        }
+      },
+      "id": "IF_MD",
+      "name": "IF Markdown",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [600, 300]
+    },
+    {
+      "parameters": {
+        "sourcePath": "={{$binary.data.filePath}}",
+        "destinationPath": "/DATA/MY_ROHIT_AUTOMATION_SYSTEM/Documentation/Auto_Sorted"
+      },
+      "id": "Move_MD",
+      "name": "Move Markdown Files",
+      "type": "n8n-nodes-base.moveBinaryFile",
+      "typeVersion": 1,
+      "position": [800, 200]
+    },
+    {
+      "parameters": {
+        "sourcePath": "={{$binary.data.filePath}}",
+        "destinationPath": "/DATA/MY_ROHIT_AUTOMATION_SYSTEM/99_ARCHIVE"
+      },
+      "id": "Move_Other",
+      "name": "Move Others to Archive",
+      "type": "n8n-nodes-base.moveBinaryFile",
+      "typeVersion": 1,
+      "position": [800, 400]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{ "node": "Read Files", "type": "main", "index": 0 }]]
+    },
+    "Read Files": {
+      "main": [[{ "node": "IF Markdown", "type": "main", "index": 0 }]]
+    },
+    "IF Markdown": {
+      "main": [
+        [{ "node": "Move Markdown Files", "type": "main", "index": 0 }],
+        [{ "node": "Move Others to Archive", "type": "main", "index": 0 }]
+      ]
+    }
+  }
+}

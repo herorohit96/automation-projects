@@ -1,0 +1,57 @@
+#! n8n-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: n8n
+    namespace: admin
+    labels:
+        com.docker.compose.project: admin
+        com.docker.compose.service: n8n
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: admin
+            com.docker.compose.service: n8n
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: admin
+                com.docker.compose.service: n8n
+                com.docker.compose.network.default: "true"
+        spec:
+            restartPolicy: Always
+            containers:
+                - name: n8n
+                  image: n8nio/n8n:latest
+                  imagePullPolicy: IfNotPresent
+                  env:
+                    - name: GENERIC_TIMEZONE
+                      value: "Asia/Kolkata"
+                    - name: N8N_BASIC_AUTH_ACTIVE
+                      value: "true"
+                    - name: N8N_BASIC_AUTH_PASSWORD
+                      value: "@Rohitdost204796@"
+                    - name: N8N_BASIC_AUTH_USER
+                      value: "your_Rohitn8n960"
+                    - name: N8N_HOST
+                      value: "localhost"
+                    - name: N8N_PORT
+                      value: "5678"
+                    - name: N8N_PROTOCOL
+                      value: "http"
+                    - name: NODE_ENV
+                      value: "production"
+                  ports:
+                    - name: n8n-5678
+                      containerPort: 5678
+                  volumeMounts:
+                    - name: home-node--n8n
+                      mountPath: /home/node/.n8n
+            volumes:
+                - name: home-node--n8n
+                  hostPath:
+                    path: C:\Users\admin\n8n-data

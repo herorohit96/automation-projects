@@ -1,0 +1,18 @@
+#! n8n-C:\Users\admin\n8n-data-persistentVolumeClaim.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: n8n-c--users-admin-n8n-data
+    namespace: admin
+    labels:
+        com.docker.compose.service: n8n
+        com.docker.compose.volume: C:\Users\admin\n8n-data
+spec:
+    accessModes:
+        # TODO would need to check which services use this volume
+        - ReadWriteOnce
+    volumeMode: Filesystem
+    resources:
+        requests:
+            storage: 100Mi

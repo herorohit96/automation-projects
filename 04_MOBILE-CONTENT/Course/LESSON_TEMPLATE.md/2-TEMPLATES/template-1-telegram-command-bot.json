@@ -1,0 +1,54 @@
+{
+  "name": "Telegram Command Bot - Service 1",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "telegram-commands",
+        "responseMode": "onReceived"
+      },
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Check command type\nconst text = $input.all()[0].json.message.text;\n\nif (text === '/start') {\n  return [{json: {reply: 'Welcome to our bot! Type /help for commands'}}];\n}\nelse if (text === '/help') {\n  return [{json: {reply: 'Commands: /start, /help, /status, /logs'}}];\n}\nelse if (text === '/status') {\n  return [{json: {reply: 'Bot is running perfectly!'}}];\n}\nelse {\n  return [{json: {reply: 'Command not recognized'}}];\n}"
+      },
+      "name": "Command Handler",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.telegram.org/bot{{ $env.TELEGRAM_BOT_TOKEN }}/sendMessage",
+        "options": {},
+        "authentication": "none",
+        "sendBody": true,
+        "bodyType": "json",
+        "body": {
+          "chat_id": "{{ $input.all()[0].json.message.chat.id }}",
+          "text": "{{ $node[\"Command Handler\"].json.reply }}"
+        }
+      },
+      "name": "Send Telegram Reply",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [750, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{"node": "Command Handler", "type": "main", "index": 0}]]
+    },
+    "Command Handler": {
+      "main": [[{"node": "Send Telegram Reply", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Templates - Earn ₹50K+ Monthly</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        
+        /* Hero Stats */
+        .stats {
+            background: #f8f9fa;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 20px;
+        }
+        
+        .stat h3 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat p {
+            color: #666;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .service-card .price {
+            color: #ff6b6b;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .service-card .features {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .service-card .features li {
+            margin-bottom: 5px;
+            margin-left: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .testimonial p {
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .testimonial .earning {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .faq h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .faq-item p {
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>🚀 Earn ₹50K+ Monthly with Automation Templates</h1>
+        <p>Done-For-You Workflow Templates. Launch in 30 Days. No Coding Required.</p>
+        <a href="#cta" class="cta-button">Get Started - ₹7,999</a>
+    </header>
+    
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stat">
+            <h3>192+</h3>
+            <p>Templates Sold</p>
+        </div>
+        <div class="stat">
+            <h3>₹20L+</h3>
+            <p>Total Revenue</p>
+        </div>
+        <div class="stat">
+            <h3>90%</h3>
+            <p>Success Rate</p>
+        </div>
+        <div class="stat">
+            <h3>24/7</h3>
+            <p>Passive Income</p>
+        </div>
+    </section>
+    
+    <!-- Services -->
+    <section class="services">
+        <h2>9 Complete Templates Included</h2>
+        <div class="service-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <h3>💬 Telegram Command Bot</h3>
+                <p>Auto-reply to commands 24/7</p>
+                <div class="price">₹2,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Pre-built commands</li>
+                        <li>Logging integration</li>
+                        <li>Setup guide (10 min)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card">
+                <h3>📱 Telegram Post Automation</h3>
+                <p>Schedule & track posts automatically</p>
+                <div class="price">₹4,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Schedule posts</li>
+                        <li>Track analytics</li>
+                        <li>Google Sheets integration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card" style="border: 2px solid #ff6b6b;">
+                <h3>💰 Affiliate Deal Bot ⭐</h3>
+                <p>Auto-post deals & earn ₹100K+/month</p>
+                <div class="price">₹7,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Auto-fetch deals (20+ sources)</li>
+                        <li>Earnings tracking</li>
+                        <li>Daily reports</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-card">
+                <h3>💾 Local Backup System</h3>
+                <p>Auto-backup n8n workflows</p>
+                <div class="price">₹1,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Daily backups</li>
+                        <li>Telegram alerts</li>
+                        <li>One-click restore</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-card">
+                <h3>☁️ Google Drive Backup</h3>
+                <p>Cloud backup with version control</p>
+                <div class="price">₹2,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Cloud storage</li>
+                        <li>Version history</li>
+                        <li>Email alerts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="service-card">
+                <h3>📊 Status Dashboard</h3>
+                <p>Real-time monitoring & alerts</p>
+                <div class="price">₹3,999</div>
+                <div class="features">
+                    <ul>
+                        <li>24/7 monitoring</li>
+                        <li>Instant alerts</li>
+                        <li>Performance metrics</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 7 -->
+            <div class="service-card">
+                <h3>📝 Backup History Logger</h3>
+                <p>Complete audit trail</p>
+                <div class="price">₹4,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Audit trail</li>
+                        <li>User tracking</li>
+                        <li>Compliance ready</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 8 -->
+            <div class="service-card">
+                <h3>🔗 RSS to Sheets + Telegram</h3>
+                <p>Auto-scrape & share deals</p>
+                <div class="price">₹3,999</div>
+                <div class="features">
+                    <ul>
+                        <li>20+ deal sources</li>
+                        <li>Auto-posting</li>
+                        <li>Click tracking</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Service 9 -->
+            <div class="service-card">
+                <h3>🧠 Project Memory System</h3>
+                <p>AI-powered project tracking</p>
+                <div class="price">₹4,999</div>
+                <div class="features">
+                    <ul>
+                        <li>Auto-logging</li>
+                        <li>AI summaries</li>
+                        <li>Team notifications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Customers Are Saying</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"Paid ₹7,999 and made ₹50K in 30 days. This is the best deal ever."</p>
+                <div class="author">- Rohan, Affiliate Marketer</div>
+                <div class="earning">Earned: ₹50K/month</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Saved me 40 hours a month on support. Now my bot does it automatically."</p>
+                <div class="author">- Priya, Agency Owner</div>
+                <div class="earning">Time Saved: 40 hrs/month</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Finally understand how to sell automation services. Already got 3 clients."</p>
+                <div class="author">- Amit, Freelancer</div>
+                <div class="earning">Client Revenue: ₹25K/month</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What's Included -->
+    <section class="services">
+        <h2>Complete Package Includes</h2>
+        <div style="background: #f8f9fa; padding: 40px; border-radius: 10px; max-width: 900px; margin: 0 auto;">
+            <h3 style="color: #667eea; margin-bottom: 20px;">✅ Everything You Need:</h3>
+            <ul style="list-style: none; font-size: 1.1em; line-height: 2;">
+                <li>✓ 9 Complete n8n Workflow Templates (JSON)</li>
+                <li>✓ Setup Guides for Each Service (40+ pages)</li>
+                <li>✓ YouTube Video Scripts (Ready to Record)</li>
+                <li>✓ Social Media Posts (Copy-Paste Ready)</li>
+                <li>✓ Email Marketing Sequences (7 Emails)</li>
+                <li>✓ Gumroad Listing Templates (All Copy)</li>
+                <li>✓ Pricing Strategies (Tested & Proven)</li>
+                <li>✓ 30-Day Launch Plan</li>
+                <li>✓ FAQ & Troubleshooting Guides</li>
+                <li>✓ 30 Days Email Support</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h4>Q: Do I need coding experience?</h4>
+            <p>No. Everything is done for you. You just import templates and customize.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Q: How long does setup take?</h4>
+            <p>1-2 hours total. Follow the step-by-step guides provided.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Q: Can I sell these templates?</h4>
+            <p>Yes! You can resell them or customize for clients. No restrictions.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Q: How much can I earn?</h4>
+            <p>Conservative: ₹3K-5K/month. Aggressive: ₹50K-100K+/month (multiple templates).</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Q: What if I get stuck?</h4>
+            <p>Email support included for 30 days. Plus FAQ document with 50+ answers.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Q: Is there a refund policy?</h4>
+            <p>100% satisfaction guarantee. 14-day refund if not satisfied.</p>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center;">
+        <h2 style="font-size: 2.5em; margin-bottom: 20px;">Ready to Earn ₹50K+ Monthly?</h2>
+        <p style="font-size: 1.2em; margin-bottom: 30px;">Everything is ready. Just customize and launch.</p>
+        <a href="#cta" class="cta-button">Get All Templates Now - ₹7,999</a>
+        <p style="margin-top: 20px; opacity: 0.9;">Limited time offer • 14-day money-back guarantee</p>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Automation Templates. All rights reserved.</p>
+        <p>Made with ❤️ to help you automate and earn.</p>
+    </footer>
+</body>
+</html>

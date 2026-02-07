@@ -1,0 +1,17 @@
+### REST Client Test File
+### Use with Thunder Client or REST Client extension
+
+### Test Google API
+GET https://www.google.com
+
+### Test n8n Local (when running)
+GET http://localhost:5678
+
+### Test Webhook (replace with your webhook)
+POST http://localhost:5678/webhook/test
+Content-Type: application/json
+
+{
+  "message": "Hello from REST Client",
+  "timestamp": "2026-01-16"
+}
