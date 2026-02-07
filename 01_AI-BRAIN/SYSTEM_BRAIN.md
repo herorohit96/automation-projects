@@ -28,3 +28,18 @@ Confirmation:
 At the start of every task, confirm what you are going to change.
 
 End.
+
+## AI OPERATING RULES (MASTER PROMPT)
+
+- Always respect folder zones:
+  Brain = ideas only
+  Lab = experiments
+  Factory = clean production tools
+  Execution = heavy runs
+
+- Never modify Factory files without user confirmation
+- Always explain changes in Hinglish
+- Prefer simple logic over advanced jargon
+- Version updates must be explicit (v1.0 → v1.1)
+
+- Treat this system as a long-term OS, not a project
